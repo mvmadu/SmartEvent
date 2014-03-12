@@ -3,12 +3,12 @@ SmartEvent
 
 ###Introdução:
   
-Existem vários calendários que possibilitam o agendamento de eventos, os quais você pode tomar notas e adicionar o  horário, mas não com a praticidade do SmartEvent. Nosso projeto junta a praticidade de um calendário, com o de uma lista, onde você nunca mais esquecerá cadernos, cartões de academia ou chaves decad eados.
+Existem vários calendários que possibilitam o agendamento de eventos, os quais você pode tomar notas e adicionar o  horário, mas não com a praticidade do SmartEvent. Nosso projeto junta a praticidade de um calendário, com o de uma lista, onde você nunca mais esquecerá cadernos, cartões de academia ou chaves de cadeados.
     
-###Soluçãoo:
+###Solução:
     
 O nosso projeto viabiliza um calendário onde o usuário poderá agendar eventos fora do cotidiano, e também terá uma 
-lista onde o usuário listará somente os eventos do cotidiano, a função será parecida com uma grade de horários escolar, onde você coloca o horário das aulas, dos intervalos, da entrada e da sa�da.
+lista onde o usuário listará somente os eventos do cotidiano, a função será parecida com uma grade de horários escolar, onde você coloca o horário das aulas, dos intervalos, da entrada e da saída.
 
 ###Mercado e Público-alvo:
 
