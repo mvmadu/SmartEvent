@@ -1,21 +1,22 @@
 SmartEvent
 ==========
 
-	Introdução:
+###Introduï¿½ï¿½o:
   
-  		Existem vários calendários que possibilitam o agendamento de eventos, os quais você pode tomar notas e adicionar o  horário, mas não com a praticidade do SmartEvent. Nosso projeto junta a praticidade de um calendário, com o de uma lista, onde você nunca mais esquecerá cadernos, cartões de academia ou chaves de cadeados.
+Existem vï¿½rios calendï¿½rios que possibilitam o agendamento de eventos, os quais vocï¿½ pode tomar notas e adicionar o  horï¿½rio, mas nï¿½o com a praticidade do SmartEvent. Nosso projeto junta a praticidade de um calendï¿½rio, com o de uma lista, onde vocï¿½ nunca mais esquecerï¿½ cadernos, cartï¿½es de academia ou chaves decad eados.
     
-	Solução:
+###Soluï¿½ï¿½o:
     
-    	O nosso projeto viabiliza um calendário onde o usuário poderá agendar eventos fora do cotidiano, e também terá uma lista onde o usuário listará somente os eventos do cotidiano, a função será parecida com uma tabela escolar, onde você coloca o horário das aulas, dos intervalos, da entrada e da saída.
+O nosso projeto viabiliza um calendï¿½rio onde o usuï¿½rio poderï¿½ agendar eventos fora do cotidiano, e tambï¿½m terï¿½ uma 
+lista onde o usuï¿½rio listarï¿½ somente os eventos do cotidiano, a funï¿½ï¿½o serï¿½ parecida com uma tabela escolar, onde vocï¿½ coloca o horï¿½rio das aulas, dos intervalos, da entrada e da saï¿½da.
 
-    Mercado e Público-alvo:
+###Mercado e Pï¿½blico-alvo:
 
-    	O SmartEvent é um produto que pode se parecer com um simples calendário, mas o seu agendamento de eventos cotidianos com sua lista de itens é o grande diferencial para o resto do mercado. Nosso projeto tem como foco alcançar as pessoas que andam com suas agendas lotadas e sempre esquecem alguma coisa importante em casa.
+O SmartEvent ï¿½ um produto que pode se parecer com um simples calendï¿½rio, mas o seu agendamento de eventos cotidianos com sua lista de itens ï¿½ o grande diferencial para o resto do mercado. Nosso projeto tem como foco alcanï¿½ar as pessoas que andam com suas agendas lotadas e sempre esquecem alguma coisa importante em casa.
 
-    Funcionamento:
+###Funcionamento:
 
-    	O SmartEvent funciona da seguinte maneira, o usuário adicionará os eventos no calendário, onde eles serão chamados de "eventos únicos", ou seja, só existirão na data e na hora a que foram atribuídos, ou o usuário adicionará na tabela semanal, onde serão chamados de "eventos cotidianos", onde acontecerâo toda semana, na mesma hora e no mesmo dia. Independente do tipo de evento que tiver, todos poderão ter uma lista, onde são colocados todos os itens necessários para cumprir determinada tarefa.
+O SmartEvent funciona da seguinte maneira, o usuï¿½rio adicionarï¿½ os eventos no calendï¿½rio, onde eles serï¿½o chamados de "eventos ï¿½nicos", ou seja, sï¿½ existirï¿½o na data e na hora a que foram atribuï¿½dos, ou o usuï¿½rio adicionarï¿½ na tabela semanal, onde serï¿½o chamados de "eventos cotidianos", onde acontecerï¿½o toda semana, na mesma hora e no mesmo dia. Independente do tipo de evento que tiver, todos poderï¿½o ter uma lista, onde sï¿½o colocados todos os itens necessï¿½rios para cumprir determinada tarefa.
     
     
     
