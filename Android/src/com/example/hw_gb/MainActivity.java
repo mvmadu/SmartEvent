@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,10 +11,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.app.Activity;
 
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends Activity
 {
 
+	float XIni = 0;
+    float YIni = 0;
+    float XFin = 0;
+    float YFin = 0;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{
@@ -30,10 +35,7 @@ public class MainActivity extends ActionBarActivity
 	        public boolean onTouch(View v, MotionEvent event)
 	        {
 	        	final int action = event.getAction();
-	        	float XIni = 0;
-	            float YIni = 0;
-	            float XFin = 0;
-	            float YFin = 0;
+	        	
 	        	switch (action & MotionEvent.ACTION_MASK) 
 	        	{
 	                case MotionEvent.ACTION_DOWN: 
@@ -47,16 +49,18 @@ public class MainActivity extends ActionBarActivity
 	                {
 	                    XFin = event.getX();
 	                    YFin = event.getY();
+	                    if(XFin-XIni>400)
+	    	            {
+	    	        		TextView1.setText("Good bye");
+	    	            }
+	                    if(XIni-XFin>400)
+	    	            {
+	    	        		TextView1.setText("Hello world!");
+	    	            }
 	                    break;
 	                }
-	                
 	            }
-	        	 if(XFin-XIni<YFin-YIni)
-	                {
-	                	TextView1.setText("Good bye");
-	                }
-	            return false;
-
+	            return true;
 	        }
 
 	    });
