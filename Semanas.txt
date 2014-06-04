@@ -1,0 +1,6 @@
+Semana 28/05 - 04/06
+	O que eu deveria ter feito:
+	O que eu fiz:
+		Consegui armazenar as fotos tiradas pela camera.
+	O que eu devo fazer essa semana:
+		Conseguir acessar as fotos salvas para usa-las no gridview
