@@ -1,5 +1,6 @@
-package softblue.example.adapter;
+package softblue.example.camera.adapter;
 
+import softblue.example.camera.R;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,10 +43,10 @@ public class ImageAdapter extends BaseAdapter {
         return imageView;
     }
 
-
+    
     // references to our images
     private Integer[] mThumbIds = {
-    		R.drawable.sample_3,
+    		getImageResource(imageFile),
             R.drawable.ic_launcher, R.drawable.sample_5,
             R.drawable.sample_6, R.drawable.sample_7,
             R.drawable.sample_0, R.drawable.sample_1,

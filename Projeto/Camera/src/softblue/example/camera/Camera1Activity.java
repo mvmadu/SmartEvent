@@ -22,7 +22,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import softblue.example.adapter.ImageAdapter;
+import softblue.example.camera.adapter.ImageAdapter;
 
 /**
  * Esta activity mostra a integração com a câmera usando a aplicação nativa de câmera do Android
@@ -41,10 +41,10 @@ public class Camera1Activity extends Activity {
     {
     	if (Environment.MEDIA_MOUNTED.equals(state)) 
     	{
-        	File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "huebr");
+        	File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Fotos_SE");
     	}
     }
-    File file = new File(Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES)+"/huebr");
+    File file = new File(Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES)+"/Fotos_SE");
 	/**
 	 * Código de requisição para poder identificar quando a activity da câmera é finalizada
 	 */
@@ -58,7 +58,9 @@ public class Camera1Activity extends Activity {
 	/**
 	 * Local de armazenamento da foto tirada 
 	 */
-	private File imageFile;
+	public File imageFile;
+	
+	public File picsDir;
 
 	/**
 	 * Invocado quando a activity é criada
@@ -84,13 +86,13 @@ public class Camera1Activity extends Activity {
 		this.imageView = (ImageView) findViewById(R.id.imagem);
 		
 		// Obtém o local onde as fotos são armazenadas na memória externa do dispositivo
-		File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+		picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 		
 		// Define o local completo onde a foto será armazenada (diretório + arquivo) 
 		//File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "SmartEvent");
 		try
 		{
-			fos = new FileOutputStream(file+"/foto"+numFotos);
+			fos = new FileOutputStream(file+"_foto0");
 			fos.write("ggwp".getBytes());
 			fos.close();
 		}
@@ -99,7 +101,7 @@ public class Camera1Activity extends Activity {
 			e.printStackTrace();
 		}
 		
-		//this.imageFile = new File(mediaStorageDir.getPath(), "foto_"+ numFotos +".jpg");
+		this.imageFile = new File(file.getPath(), "_foto"+ numFotos +".jpg");
 
 	    final View touchView = findViewById(R.id.entire_view);
 	    touchView.setOnTouchListener(new View.OnTouchListener() 
@@ -146,10 +148,10 @@ public class Camera1Activity extends Activity {
 	 */
 	public void takePicture(View v) {
 		// Cria uma intent que será usada para abrir a aplicação nativa de câmera
-		Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		Intent i = new Intent(Environment.DIRECTORY_PICTURES);
 		
 		// Indica na intent o local onde a foto tirada deve ser armazenada
-		i.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imageFile));
+		i.putExtra(Environment.DIRECTORY_PICTURES, Uri.fromFile(imageFile));
 		
 		// Abre a aplicação de câmera
 		startActivityForResult(i, REQUEST_PICTURE);
@@ -160,9 +162,6 @@ public class Camera1Activity extends Activity {
 	public class GridViewActivity extends Activity {
 
 		GridView gridView;
-
-		//static final String[] MOBILE_OS = new String[] { "Android", "iOS",
-		//		"Windows", "Blackberry" };
 
 		@Override
 		public void onCreate(Bundle savedInstanceState) {

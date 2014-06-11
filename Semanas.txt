@@ -1,3 +1,10 @@
+Semana 04/06 - 11/06
+	O que eu deveria ter feito:
+		Conseguir acessar as fotos salvas para usa-las no gridview
+	O que eu fiz:
+		Nada
+	O que eu devo fazer essa semana:
+		Conseguir acessar as fotos salvas para usa-las no gridview
 Semana 28/05 - 04/06
 	O que eu deveria ter feito:
 	O que eu fiz:
