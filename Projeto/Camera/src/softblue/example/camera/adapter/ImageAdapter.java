@@ -46,7 +46,7 @@ public class ImageAdapter extends BaseAdapter {
     
     // references to our images
     private Integer[] mThumbIds = {
-    		getImageResource(imageFile),
+    		Environment.DIRECTORY_PICTURES,
             R.drawable.ic_launcher, R.drawable.sample_5,
             R.drawable.sample_6, R.drawable.sample_7,
             R.drawable.sample_0, R.drawable.sample_1,

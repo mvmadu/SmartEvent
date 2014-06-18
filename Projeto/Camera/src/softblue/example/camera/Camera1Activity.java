@@ -3,26 +3,22 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import softblue.example.camera.adapter.ImageAdapter;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-import softblue.example.camera.adapter.ImageAdapter;
 
 /**
  * Esta activity mostra a integração com a câmera usando a aplicação nativa de câmera do Android
@@ -44,7 +40,7 @@ public class Camera1Activity extends Activity {
         	File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Fotos_SE");
     	}
     }
-    File file = new File(Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES)+"/Fotos_SE");
+    File file = new File(Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES)+"Fotos_SE");
 	/**
 	 * Código de requisição para poder identificar quando a activity da câmera é finalizada
 	 */
@@ -101,8 +97,8 @@ public class Camera1Activity extends Activity {
 			e.printStackTrace();
 		}
 		
-		this.imageFile = new File(file.getPath(), "_foto"+ numFotos +".jpg");
-
+		this.imageFile = new File(file.getPath(), "foto"+ numFotos +".jpg");
+		
 	    final View touchView = findViewById(R.id.entire_view);
 	    touchView.setOnTouchListener(new View.OnTouchListener() 
 	    {
@@ -155,6 +151,11 @@ public class Camera1Activity extends Activity {
 		
 		// Abre a aplicação de câmera
 		startActivityForResult(i, REQUEST_PICTURE);
+		/*
+		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+	    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+	        startActivityForResult(takePictureIntent, 1);
+	    }*/
 		
 		numFotos++;
 	}
