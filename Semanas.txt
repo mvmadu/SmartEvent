@@ -1,3 +1,19 @@
+Semana 25/06 - 02/07
+	O que eu deveria ter feito:
+		Acessar o grid view e ir com a tela para o gridview e voltar para a camera
+	O que eu fiz:
+		Nada
+	O que eu devo fazer essa semana:
+		Acessar o grid view e ir com a tela para o gridview e voltar para a camera
+		
+Semana 18/06 - 25/06
+	O que eu deveria ter feito:
+		Conseguir acessar as fotos salvas para usa-las no gridview
+	O que eu fiz:
+		Descobrimos o verdadeiro erro com o gridview
+	O que eu devo fazer essa semana:
+		Acessar o grid view e ir com a tela para o gridview e voltar para a camera
+		
 Semana 11/06 - 18/06
 	O que eu deveria ter feito:
 		Conseguir acessar as fotos salvas para usa-las no gridview
@@ -5,6 +21,7 @@ Semana 11/06 - 18/06
 		Corrigi o erro no R
 	O que eu devo fazer essa semana:
 		Conseguir acessar as fotos salvas para usa-las no gridview
+		
 Semana 04/06 - 11/06
 	O que eu deveria ter feito:
 		Conseguir acessar as fotos salvas para usa-las no gridview
@@ -12,6 +29,7 @@ Semana 04/06 - 11/06
 		Nada
 	O que eu devo fazer essa semana:
 		Conseguir acessar as fotos salvas para usa-las no gridview
+		
 Semana 28/05 - 04/06
 	O que eu deveria ter feito:
 	O que eu fiz:

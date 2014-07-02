@@ -3,22 +3,26 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import softblue.example.camera.adapter.ImageAdapter;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+import softblue.example.camera.adapter.ImageAdapter;
 
 /**
  * Esta activity mostra a integração com a câmera usando a aplicação nativa de câmera do Android
@@ -37,10 +41,10 @@ public class Camera1Activity extends Activity {
     {
     	if (Environment.MEDIA_MOUNTED.equals(state)) 
     	{
-        	File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Fotos_SE");
+        	File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "SmartFotos");
     	}
     }
-    File file = new File(Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES)+"Fotos_SE");
+    File file = new File(Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES)+"/SmartFotos");
 	/**
 	 * Código de requisição para poder identificar quando a activity da câmera é finalizada
 	 */
@@ -54,9 +58,7 @@ public class Camera1Activity extends Activity {
 	/**
 	 * Local de armazenamento da foto tirada 
 	 */
-	public File imageFile;
-	
-	public File picsDir;
+	private File imageFile;
 
 	/**
 	 * Invocado quando a activity é criada
@@ -64,32 +66,20 @@ public class Camera1Activity extends Activity {
 	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.teste);
-
-	    GridView gridview = (GridView) findViewById(R.id.gridview);
-	    gridview.setAdapter(new ImageAdapter(this));
-
-	    gridview.setOnItemClickListener(new OnItemClickListener() {
-	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-	            Toast.makeText(Camera1Activity.this, "" + position, Toast.LENGTH_SHORT).show();
-	        }
-	    });
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
 		this.imageView = (ImageView) findViewById(R.id.imagem);
 		
 		// Obtém o local onde as fotos são armazenadas na memória externa do dispositivo
-		picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+		File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 		
 		// Define o local completo onde a foto será armazenada (diretório + arquivo) 
 		//File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "SmartEvent");
 		try
 		{
-			fos = new FileOutputStream(file+"_foto0");
-			fos.write("ggwp".getBytes());
+			fos = new FileOutputStream(file+"/foto"+numFotos);
+			fos.write("huebr".getBytes());
 			fos.close();
 		}
 		catch(Exception e)
@@ -97,8 +87,8 @@ public class Camera1Activity extends Activity {
 			e.printStackTrace();
 		}
 		
-		this.imageFile = new File(file.getPath(), "foto"+ numFotos +".jpg");
-		
+		//this.imageFile = new File(mediaStorageDir.getPath(), "foto_"+ numFotos +".jpg");
+
 	    final View touchView = findViewById(R.id.entire_view);
 	    touchView.setOnTouchListener(new View.OnTouchListener() 
 	    {
@@ -120,13 +110,11 @@ public class Camera1Activity extends Activity {
 	                {
 	                    XFin = event.getX();
 	                    YFin = event.getY();
-	                    if(XFin-XIni>100)
-	    	            {
-	    	        		imageView.setImageResource(R.drawable.ic_launcher);
-	    	            }
+	                    
 	                    if(XIni-XFin>100)
 	    	            {
-	    	        		setContentView(R.layout.teste);
+	                    	Intent i = new Intent(Camera1Activity.this, PicturesList.class);
+	                        startActivity(i);
 	    	            }
 
 	                    break;
@@ -136,58 +124,21 @@ public class Camera1Activity extends Activity {
 	        }
 
 	    });
-	}
+	};
 	
-	/**
-	 * Método que tira uma foto
-	 * @param v
-	 */
 	public void takePicture(View v) {
 		// Cria uma intent que será usada para abrir a aplicação nativa de câmera
-		Intent i = new Intent(Environment.DIRECTORY_PICTURES);
+		Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		
 		// Indica na intent o local onde a foto tirada deve ser armazenada
-		i.putExtra(Environment.DIRECTORY_PICTURES, Uri.fromFile(imageFile));
+		i.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imageFile));
 		
 		// Abre a aplicação de câmera
 		startActivityForResult(i, REQUEST_PICTURE);
-		/*
-		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-	    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-	        startActivityForResult(takePictureIntent, 1);
-	    }*/
 		
 		numFotos++;
 	}
-
-	public class GridViewActivity extends Activity {
-
-		GridView gridView;
-
-		@Override
-		public void onCreate(Bundle savedInstanceState) {
-
-			super.onCreate(savedInstanceState);
-			setContentView(R.layout.main);
-
-			gridView = (GridView) findViewById(R.id.gridview);
-
-			gridView.setAdapter(new ImageAdapter(this));
-
-			gridView.setOnItemClickListener(new OnItemClickListener() {
-				public void onItemClick(AdapterView<?> parent, View v,
-						int position, long id) {
-					//Toast.makeText(
-					//		getApplicationContext(),
-					//		((TextView) v.findViewById())
-					//				.getText(), Toast.LENGTH_SHORT).show();
-
-				}
-			});
-
-		}
-
-	}
+	
 	/**
 	 * Método chamado quando a aplicação nativa da câmera é finalizada
 	 * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
