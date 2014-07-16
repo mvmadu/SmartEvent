@@ -3,8 +3,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,17 +14,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import softblue.example.camera.adapter.ImageAdapter;
 
 /**
  * Esta activity mostra a integração com a câmera usando a aplicação nativa de câmera do Android
@@ -35,9 +30,9 @@ public class Camera1Activity extends Activity {
     float YIni = 0;
     float XFin = 0;
     float YFin = 0;	
-    int numFotos = 0;
+    static int numFotos = 0;
     
-    String state = Environment.getExternalStorageState();
+    /*String state = Environment.getExternalStorageState();
     {
     	if (Environment.MEDIA_MOUNTED.equals(state)) 
     	{
@@ -64,6 +59,11 @@ public class Camera1Activity extends Activity {
 	 * Invocado quando a activity é criada
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
+	static File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "SmartEvent");
+	
+	private Uri fileUri;
+	public static final int MEDIA_TYPE_IMAGE = 1;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -72,11 +72,11 @@ public class Camera1Activity extends Activity {
 		this.imageView = (ImageView) findViewById(R.id.imagem);
 		
 		// Obtém o local onde as fotos são armazenadas na memória externa do dispositivo
-		File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+		//File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 		
 		// Define o local completo onde a foto será armazenada (diretório + arquivo) 
 		//File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "SmartEvent");
-		try
+		/*try
 		{
 			fos = new FileOutputStream(file+"/foto"+numFotos);
 			fos.write("huebr".getBytes());
@@ -85,9 +85,9 @@ public class Camera1Activity extends Activity {
 		catch(Exception e)
 		{
 			e.printStackTrace();
-		}
+		}*/
 		
-		//this.imageFile = new File(mediaStorageDir.getPath(), "foto_"+ numFotos +".jpg");
+		imageFile = new File(mediaStorageDir, "foto_"+ numFotos +".jpg");
 
 	    final View touchView = findViewById(R.id.entire_view);
 	    touchView.setOnTouchListener(new View.OnTouchListener() 
@@ -133,18 +133,54 @@ public class Camera1Activity extends Activity {
 		// Indica na intent o local onde a foto tirada deve ser armazenada
 		i.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imageFile));
 		
+		 fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE); // create a file to save the image
+		 i.putExtra(MediaStore.EXTRA_OUTPUT, fileUri); // set the image file name
+
+		
 		// Abre a aplicação de câmera
 		startActivityForResult(i, REQUEST_PICTURE);
-		
+
 		numFotos++;
 	}
 	
+	private static Uri getOutputMediaFileUri(int type){
+	      return Uri.fromFile(getOutputMediaFile(type));
+	}
+
+	private static File getOutputMediaFile(int type){
+	    // To be safe, you should check that the SDCard is mounted
+	    // using Environment.getExternalStorageState() before doing this.
+
+	   
+	    // This location works best if you want the created images to be shared
+	    // between applications and persist after your app has been uninstalled.
+
+	    // Create the storage directory if it does not exist
+	    if (! mediaStorageDir.exists()){
+	        if (! mediaStorageDir.mkdirs()){
+	            Log.d("SmartEvent", "Falhou ao criar o diretório");
+	            return null;
+	        }
+	    }
+
+	    // Create a media file name
+	    //String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+	    File mediaFile;
+	    if (type == MEDIA_TYPE_IMAGE){
+	        mediaFile = new File(mediaStorageDir.getPath() + File.separator +
+	        "IMG_"+ numFotos + ".jpg");
+	    } else {
+	        return null;
+	    }
+
+	    return mediaFile;
+	}
 	/**
 	 * Método chamado quando a aplicação nativa da câmera é finalizada
 	 * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
 	 */
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	//@Override
+	/*protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// Verifica o código de requisição e se o resultado é OK (outro resultado indica que
 		// o usuário cancelou a tirada da foto)
 		if (requestCode == REQUEST_PICTURE && resultCode == RESULT_OK) {
@@ -170,5 +206,5 @@ public class Camera1Activity extends Activity {
 				e.printStackTrace();
 			}
 		}
-	}
+	}*/
 }
