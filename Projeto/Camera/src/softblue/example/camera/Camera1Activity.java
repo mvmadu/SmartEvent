@@ -1,15 +1,11 @@
 package softblue.example.camera;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 
+import softblue.example.camera.adapter.ImageAdapter;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -30,7 +26,10 @@ public class Camera1Activity extends Activity {
     float YIni = 0;
     float XFin = 0;
     float YFin = 0;	
+	static private Context C;
     static int numFotos = 0;
+    static ImageAdapter myImageAdapter = new ImageAdapter(C);
+
     
     /*String state = Environment.getExternalStorageState();
     {
@@ -88,7 +87,7 @@ public class Camera1Activity extends Activity {
 		}*/
 		
 		imageFile = new File(mediaStorageDir, "foto_"+ numFotos +".jpg");
-
+		
 	    final View touchView = findViewById(R.id.entire_view);
 	    touchView.setOnTouchListener(new View.OnTouchListener() 
 	    {
@@ -169,10 +168,12 @@ public class Camera1Activity extends Activity {
 	    if (type == MEDIA_TYPE_IMAGE){
 	        mediaFile = new File(mediaStorageDir.getPath() + File.separator +
 	        "IMG_"+ numFotos + ".jpg");
+	        int x = myImageAdapter.getCount();
+	        //myImageAdapter.setmThumbIds(numFotos, R.drawable.sample_1);
 	    } else {
 	        return null;
 	    }
-
+	    //myImageAdapter.setmThumbIds(numFotos, R.drawable.sample_1);
 	    return mediaFile;
 	}
 	/**
