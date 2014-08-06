@@ -65,7 +65,7 @@ public class PicturesList extends Activity {
 	    				{
 	    					XFin = event.getX();
 	    					YFin = event.getY();
-	    					if(XFin-XIni>100)
+	    					if(XFin-XIni>250)
 	    					{	
 	    						Intent i = new Intent( PicturesList.this, Camera1Activity.class );
 	    						startActivity(i);

@@ -26,8 +26,7 @@ public class ImageAdapter extends BaseAdapter {
     
     // Keep all Images in array
     public Integer[] mThumbIds = {
-    		/*(mediaStorageDir.getPath() + File.separator +
-	        "IMG_"+ 1 + ".jpg"), R.drawable.sample_1,
+    		R.drawable.sample_1,
             R.drawable.sample_1, R.drawable.sample_2,
             R.drawable.sample_3, R.drawable.sample_4,
             R.drawable.sample_5, R.drawable.sample_6,
@@ -36,13 +35,9 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.sample_3, R.drawable.sample_4,
             R.drawable.sample_5, R.drawable.sample_6,
             R.drawable.sample_7, R.drawable.sample_6,
-            R.drawable.sample_1, R.drawable.sample_1,*/
+            R.drawable.sample_1, R.drawable.sample_1,
 
     };
- 
-    public void setmThumbIds(int pos, int f){
-    	mThumbIds[pos] = f;
-    }
     
     // Constructor
     public ImageAdapter(Context c){
