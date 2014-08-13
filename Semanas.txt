@@ -1,12 +1,49 @@
+Semana 30/07 - 5/08
+	O que eu deveria ter feito:
+		Colocar as fotos no gridview	
+	O que eu fiz:
+		Implementamos uma outra maneira para acessar as fotos
+	O que eu devo fazer essa semana:
+		Camera parou de funcionar, achar o erro e corrigí-lo
+Semana 23/07 - 29/07
+	O que eu deveria ter feito:
+		Ir do gried view para a tela da camera
+	O que eu fiz:
+		Conseguimos ir de uma tela para a outra 
+	O que eu devo fazer essa semana:
+		Colocar as fotos no gridview
+Semana 16/07 - 23/07
+	O que eu deveria ter feito:
+		Implementar um diretório para armazenar as fotos
+	O que eu fiz:
+		Implementamos o mediaStorageDir para armazená-las
+	O que eu devo fazer essa semana:
+	
+Semana 9/07 - 15/07
+	O que eu deveria ter feito:
+		Fazer a camera voltar a funcionar		
+	O que eu fiz:
+	 	Camera voltou a funcionar
+	O que eu devo fazer essa semana:
+		Implementar um diretório para armazenar as fotos
+		
+Semana 2/07 - 8/07
+	O que eu deveria ter feito:
+		Acessar o gridview
+	O que eu fiz:
+		Conseguimos acessar o gridview e reorganizamos o código da PictureList
+	O que eu devo fazer essa semana:
+		Fazer a camera voltar a funcionar
+
 Semana 25/06 - 02/07
 	O que eu deveria ter feito:
 		Acessar o grid view e ir com a tela para o gridview e voltar para a camera
 	O que eu fiz:
-		Nada
+		Criamos o gried view, mas não conseguimos acessá-lo
 	O que eu devo fazer essa semana:
-		Acessar o grid view e ir com a tela para o gridview e voltar para a camera
+		Acessar o gried view
 		
-Semana 18/06 - 25/06
+Semana 18/06 - 24/06
 	O que eu deveria ter feito:
 		Conseguir acessar as fotos salvas para usa-las no gridview
 	O que eu fiz:
@@ -22,7 +59,7 @@ Semana 11/06 - 18/06
 	O que eu devo fazer essa semana:
 		Conseguir acessar as fotos salvas para usa-las no gridview
 		
-Semana 04/06 - 11/06
+Semana 04/06 - 10/06
 	O que eu deveria ter feito:
 		Conseguir acessar as fotos salvas para usa-las no gridview
 	O que eu fiz:
@@ -30,7 +67,7 @@ Semana 04/06 - 11/06
 	O que eu devo fazer essa semana:
 		Conseguir acessar as fotos salvas para usa-las no gridview
 		
-Semana 28/05 - 04/06
+Semana 28/05 - 03/06
 	O que eu deveria ter feito:
 	O que eu fiz:
 		Consegui armazenar as fotos tiradas pela camera.
