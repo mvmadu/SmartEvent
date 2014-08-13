@@ -1,17 +1,27 @@
+Semana 6/08 - 13/08
+	O que eu deveria ter feito:
+		Camera parou de funcionar, achar o erro e corrigí-lo
+	O que eu fiz:
+		Menu corrigido
+	O que eu devo fazer essa semana:
+		Camera continua sem funcionar
+		
 Semana 30/07 - 5/08
 	O que eu deveria ter feito:
 		Colocar as fotos no gridview	
 	O que eu fiz:
 		Implementamos uma outra maneira para acessar as fotos
 	O que eu devo fazer essa semana:
-		Camera parou de funcionar, achar o erro e corrigí-lo
+		Camera parou de funcionar, achar o erro e corrigí-
+		
 Semana 23/07 - 29/07
 	O que eu deveria ter feito:
 		Ir do gried view para a tela da camera
 	O que eu fiz:
 		Conseguimos ir de uma tela para a outra 
 	O que eu devo fazer essa semana:
-		Colocar as fotos no gridview
+		Colocar as fotos no 
+		
 Semana 16/07 - 23/07
 	O que eu deveria ter feito:
 		Implementar um diretório para armazenar as fotos
